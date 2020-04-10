@@ -148,7 +148,7 @@ const CGFloat kTOPasscodeKeypadMaxHeight = 330.0f;
     self.optionsButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.optionsButton setTitle:NSLocalizedString(@"Passcode Options", @"") forState:UIControlStateNormal];
     self.optionsButton.titleLabel.font = [UIFont systemFontOfSize:15.0f];
-    self.optionsButton.hidden = NO;
+    self.optionsButton.hidden = YES;
     [self.optionsButton sizeToFit];
     [self.optionsButton addTarget:self action:@selector(optionsCodeButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.optionsButton];
