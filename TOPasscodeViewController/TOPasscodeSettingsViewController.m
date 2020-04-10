@@ -150,8 +150,8 @@ const CGFloat kTOPasscodeKeypadMaxHeight = 330.0f;
     self.optionsButton.titleLabel.font = [UIFont systemFontOfSize:15.0f];
     self.optionsButton.hidden = YES;
     [self.optionsButton sizeToFit];
-    [self.optionsButton addTarget:self action:@selector(optionsCodeButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    // [self.view addSubview:self.optionsButton];
+//     [self.optionsButton addTarget:self action:@selector(optionsCodeButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.optionsButton];
 
     // Add callbacks for the keypad view
     self.keypadView.numberButtonTappedHandler = ^(NSInteger number) {
@@ -196,7 +196,7 @@ const CGFloat kTOPasscodeKeypadMaxHeight = 330.0f;
     BOOL variableSizePasscode = (type >= TOPasscodeTypeCustomNumeric);
 
     // Update the visibility of the options button
-    self.optionsButton.hidden = !(state == TOPasscodeSettingsViewStateEnterNewPasscode);
+    // self.optionsButton.hidden = !(state == TOPasscodeSettingsViewStateEnterNewPasscode);
 
     // Clear the input view
     self.inputField.passcode = nil;
@@ -327,14 +327,14 @@ const CGFloat kTOPasscodeKeypadMaxHeight = 330.0f;
     self.containerView.frame = CGRectOffset(self.containerView.frame, self.view.frame.size.width * multiplier, 0.0f);
 
     // Update the options button alpha depending on transition state
-    self.optionsButton.hidden = NO;
-    self.optionsButton.alpha = (state == TOPasscodeSettingsViewStateEnterNewPasscode) ? 0.0f : 1.0f;
+    // self.optionsButton.hidden = NO;
+    // self.optionsButton.alpha = (state == TOPasscodeSettingsViewStateEnterNewPasscode) ? 0.0f : 1.0f;
 
     // Perform an animation where the snapshot slides off, and the new container slides in
     id animationBlock = ^{
         snapshot.frame = CGRectOffset(snapshot.frame, -self.view.frame.size.width * multiplier, 0.0f);
         self.containerView.frame = CGRectOffset(self.containerView.frame, -self.view.frame.size.width * multiplier, 0.0f);
-        self.optionsButton.alpha = (state == TOPasscodeSettingsViewStateEnterNewPasscode) ? 1.0f : 0.0f;
+        // self.optionsButton.alpha = (state == TOPasscodeSettingsViewStateEnterNewPasscode) ? 1.0f : 0.0f;
     };
 
     // Clean up by removing the snapshot view
@@ -384,10 +384,10 @@ const CGFloat kTOPasscodeKeypadMaxHeight = 330.0f;
     self.containerView.frame = CGRectIntegral(frame);
 
     // Layout the passcode options button
-    frame = self.optionsButton.frame;
-    frame.origin.y = CGRectGetMinY(self.contentOverlapFrame) - kTOPasscodeSettingsOptionsButtonOffset - CGRectGetHeight(frame);
-    frame.origin.x = (CGRectGetWidth(self.view.frame) - CGRectGetWidth(frame)) * 0.5f;
-    self.optionsButton.frame = frame;
+//     frame = self.optionsButton.frame;
+//     frame.origin.y = CGRectGetMinY(self.contentOverlapFrame) - kTOPasscodeSettingsOptionsButtonOffset - CGRectGetHeight(frame);
+//     frame.origin.x = (CGRectGetWidth(self.view.frame) - CGRectGetWidth(frame)) * 0.5f;
+//     self.optionsButton.frame = frame;
 
     // Set frame of title label
     frame = self.titleLabel.frame;
